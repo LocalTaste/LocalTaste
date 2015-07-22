@@ -1,0 +1,230 @@
+﻿<!DOCTYPE html>
+<html>
+<head>
+    <meta http-equiv="Content-Type" content="text/html; charset=UTF-8">
+    <meta charset="utf-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <!-- Title and other stuffs -->
+    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <meta name="description" content="">
+    <meta name="keywords" content="">
+    <meta name="author" content="">
+
+    <!-- Google web font -->
+    <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,300,400,600,700' rel='stylesheet' type='text/css'>
+
+    <!-- Stylesheets -->
+    <!-- Bootstrap -->
+    <link href="Content/bootstrap.css" rel="stylesheet">
+    <!-- Font awesome icon -->
+    <link rel="stylesheet" href="Content/font-awesome.css">
+    <!-- Flexslider -->
+    <link rel="stylesheet" href="Content/flexslider.css">
+    <!-- prettyPhoto -->
+    <link rel="stylesheet" href="Content/prettyPhoto.css">
+    <!-- Custom style -->
+    <link href="Content/style.css" rel="stylesheet">
+    <!-- Color style - orange, blue, green, violet, red, rose -->
+    <link href="Content/orange.css" rel="stylesheet">
+
+
+    <!-- HTML5 Support for IE -->
+    <!--[if lt IE 9]>
+    <script src="js/html5shim.js"></script>
+    <![endif]-->
+    <!-- Favicon -->
+    <link rel="shortcut icon" href="img/favicon/favicon.png">
+
+
+    @Scripts.Render("~/bundles/modernizr")
+</head>
+<body>
+    <div class="navbar navbar-inverse navbar-fixed-top bs-docs-nav" role="banner">
+
+        <div class="container">
+            <div class="navbar-header">
+                <button class="navbar-toggle" type="button" data-toggle="collapse" data-target=".bs-navbar-collapse">
+                    <span class="sr-only">Toggle navigation</span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                    <span class="icon-bar"></span>
+                </button>
+                <a class="brand" href="index.html">Local Taste</a>
+            </div>
+
+            <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
+                <ul class="nav navbar-nav navbar-right">
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="index.html">Home</a></li>
+                            <li><a href="indexslider.html">Home - Different Slider</a></li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu<b class="caret"></b></a>
+                        <!-- Use the class "expanded-menu" to create expanded menu -->
+                        <ul class="dropdown-menu expanded-menu">
+                            <!-- Dropdown menu header -->
+                            <li class="menu-header">
+                                <h5>Menu Heading</h5>
+                            </li>
+                            <!-- Dropdown menu body -->
+                            <li class="menu-body">
+                                <!-- Use bootstrap grid -->
+                                <div class="row">
+                                    <div class="col-md-6">
+                                        <h6>Something Here</h6>
+                                        <ul>
+                                            <li><a href="#">Condimentum</a></li>
+                                            <li><a href="#">Etiam at</a></li>
+                                            <li><a href="#">Fusce vel</a></li>
+                                            <li><a href="#">Vivamus</a></li>
+                                            <li><a href="#">Pellentesque</a></li>
+                                        </ul>
+                                    </div>
+                                    <div class="col-md-6">
+                                        <h6>Something Here</h6>
+                                        <ul>
+                                            <li><a href="#">Condimentum</a></li>
+                                            <li><a href="#">Etiam at</a></li>
+                                            <li><a href="#">Fusce vel</a></li>
+                                            <li><a href="#">Vivamus</a></li>
+                                            <li><a href="#">Pellentesque</a></li>
+                                        </ul>
+                                    </div>
+                                </div>
+                            </li>
+                            <!-- Dropdown menu footer -->
+                            <li class="menu-footer">
+                                <div class="pull-left">
+                                    Something Goes Here<br />
+                                    Write something here also
+                                </div>
+                                <div class="pull-right">
+                                    <a href="#" class="btn btn-default">Button Here</a>
+                                </div>
+                                <div class="clearfix"></div>
+                            </li>
+                        </ul>
+                    </li>
+
+                    <li class="dropdown">
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <b class="caret"></b></a>
+                        <ul class="dropdown-menu">
+                            <li><a href="aboutus2.html">About Us</a></li>
+                            <li><a href="404.html">404</a></li>
+                            <li><a href="blog2.html">Blog</a></li>
+                            <li><a href="comingsoon.html">Coming Soon</a></li>
+                            <li><a href="faq.html">FAQ</a></li>
+                            <li><a href="landingpage.html">Landing Page</a></li>
+                            <li><a href="login.html">Login</a></li>
+                            <li><a href="pricing.html">Pricing</a></li>
+                            <li><a href="register.html">Register</a></li>
+                            <li><a href="resume.html">Resume</a></li>
+                            <li><a href="support.html">Support</a></li>
+                            <li><a href="features.html">Features</a></li>
+                            <li><a href="tasks.html">Tasks</a></li>
+                        </ul>
+                    </li>
+
+                    <li>
+                        <a href="service.html">Service</a>
+                    </li>
+                    <li>
+                        <a href="portfolio1.html">Portfolio</a>
+                    </li>
+                    <li>
+                        <a href="contactus1.html">Contact Us</a>
+                    </li>
+                </ul>
+            </nav>
+        </div>
+    </div>
+    @RenderBody()
+    <footer>
+        <div class="container">
+            <div class="row">
+
+                <div class="col-md-3 col-sm-3">
+                    <div class="widget">
+                        <h6>Contact</h6>
+                        <hr />
+                        <i class="icon-home"></i> &nbsp; 123, Los Angeles, CA, 54321.
+                        <hr />
+                        <i class="icon-phone"></i> &nbsp; +239-3823-3434
+                        <hr />
+                        <i class="icon-envelope-alt"></i> &nbsp; <a href="mailto:#">someone@company.com</a>
+                        <hr />
+                        <div class="social">
+                            <a href="#"><i class="icon-facebook facebook"></i></a>
+                            <a href="#"><i class="icon-twitter twitter"></i></a>
+                            <a href="#"><i class="icon-linkedin linkedin"></i></a>
+                            <a href="#"><i class="icon-google-plus google-plus"></i></a>
+                        </div>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3">
+                    <div class="widget">
+                        <h6>Links Goes Here</h6>
+                        <hr />
+                        <ul>
+                            <li><a href="#">Condimentum</a></li>
+                            <li><a href="#">Etiam at</a></li>
+                            <li><a href="#">Fusce vel</a></li>
+                            <li><a href="#">Vivamus</a></li>
+                            <li><a href="#">Pellentesque</a></li>
+                            <li><a href="#">Vivamus</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3">
+                    <div class="widget">
+                        <h6>About Us</h6>
+                        <hr />
+                        <p>Lorem ipsum dolor sit amet, consectetur adipiscing elit. Cras elementum dolor eget nisi fermentum quis hendrerit magna vestibulum. Curabitur  ornare  scelerisque scelerisque ut consectetur. </p>
+                    </div>
+                </div>
+
+                <div class="col-md-3 col-sm-3">
+                    <div class="widget">
+                        <h6>Links Goes Here</h6>
+                        <hr />
+                        <ul>
+                            <li><a href="#">Condimentum</a></li>
+                            <li><a href="#">Etiam at</a></li>
+                            <li><a href="#">Fusce vel</a></li>
+                            <li><a href="#">Vivamus</a></li>
+                            <li><a href="#">Pellentesque</a></li>
+                            <li><a href="#">Vivamus</a></li>
+                        </ul>
+                    </div>
+                </div>
+
+            </div>
+
+            <hr />
+            <!-- Copyright info -->
+            <p class="copy">Copyright &copy; 2012 | <a href="#">Your Site</a></p>
+
+            <div class="clearfix"></div>
+        </div>
+    </footer>
+    <!-- JS -->
+    <script src="Scripts/jquery.js"></script> <!-- jQuery -->
+    <script src="Scripts/bootstrap.js"></script> <!-- Bootstrap -->
+    <script src="Scripts/easing.js"></script> <!-- jQuery easing -->
+    <script src="Scripts/filter.js"></script> <!-- Support page filter -->
+    <script src="Scripts/jquery.carouFredSel-6.1.0-packed.js"></script> <!-- CarouFredSel -->
+    <script src="Scripts/jquery.prettyPhoto.js"></script> <!-- jQuery prettyPhoto -->
+    <script src="Scripts/jquery.flexslider-min.js"></script> <!-- Flex slider -->
+    <script src="Scripts/jquery.isotope.js"></script> <!-- Isotope -->
+    <script src="Scripts/custom.js"></script> <!-- Custom sript -->
+    @RenderSection("scripts", required: false)
+</body>
+</html>
