@@ -40,11 +40,15 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="Managers\Interfaces\IRestaurantManager.cs" />
+    <Compile Include="Managers\Interfaces\IReviewManager.cs" />
+    <Compile Include="Managers\Interfaces\IUserManager.cs" />
+    <Compile Include="Managers\RestaurantManager.cs" />
+    <Compile Include="Managers\ReviewManager.cs" />
+    <Compile Include="Managers\UserManager.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
   </ItemGroup>
-  <ItemGroup>
-    <Folder Include="Managers\Interfaces\" />
-  </ItemGroup>
+  <ItemGroup />
   <ItemGroup>
     <ProjectReference Include="..\LocalTaste.Data\LocalTaste.Data.csproj">
       <Project>{60eae15b-972a-4493-9764-81ad67191cec}</Project>
