@@ -5,7 +5,7 @@
     <meta charset="utf-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <!-- Title and other stuffs -->
-    <title>@ViewBag.Title - My ASP.NET Application</title>
+    <title>@ViewBag.Title - LocalTaste</title>
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <meta name="description" content="">
     <meta name="keywords" content="">
@@ -15,18 +15,7 @@
     <link href='http://fonts.googleapis.com/css?family=Open+Sans:400italic,300,400,600,700' rel='stylesheet' type='text/css'>
 
     <!-- Stylesheets -->
-    <!-- Bootstrap -->
-    <link href="Content/bootstrap.css" rel="stylesheet">
-    <!-- Font awesome icon -->
-    <link rel="stylesheet" href="Content/font-awesome.css">
-    <!-- Flexslider -->
-    <link rel="stylesheet" href="Content/flexslider.css">
-    <!-- prettyPhoto -->
-    <link rel="stylesheet" href="Content/prettyPhoto.css">
-    <!-- Custom style -->
-    <link href="Content/style.css" rel="stylesheet">
-    <!-- Color style - orange, blue, green, violet, red, rose -->
-    <link href="Content/orange.css" rel="stylesheet">
+    @Styles.Render("~/Content/css")
 
 
     <!-- HTML5 Support for IE -->
@@ -50,95 +39,26 @@
                     <span class="icon-bar"></span>
                     <span class="icon-bar"></span>
                 </button>
-                <a class="brand" href="index.html">Local Taste</a>
+                <a class="brand" href="@Url.Action("Index","Home")">Local Taste</a>
             </div>
 
             <nav class="collapse navbar-collapse bs-navbar-collapse" role="navigation">
                 <ul class="nav navbar-nav navbar-right">
 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Home <b class="caret"></b></a>
-                        <ul class="dropdown-menu">
-                            <li><a href="index.html">Home</a></li>
-                            <li><a href="indexslider.html">Home - Different Slider</a></li>
-                        </ul>
+                        <a href="@Url.Action("Index","Home")">Home</a>
                     </li>
 
                     <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Menu<b class="caret"></b></a>
-                        <!-- Use the class "expanded-menu" to create expanded menu -->
-                        <ul class="dropdown-menu expanded-menu">
-                            <!-- Dropdown menu header -->
-                            <li class="menu-header">
-                                <h5>Menu Heading</h5>
-                            </li>
-                            <!-- Dropdown menu body -->
-                            <li class="menu-body">
-                                <!-- Use bootstrap grid -->
-                                <div class="row">
-                                    <div class="col-md-6">
-                                        <h6>Something Here</h6>
-                                        <ul>
-                                            <li><a href="#">Condimentum</a></li>
-                                            <li><a href="#">Etiam at</a></li>
-                                            <li><a href="#">Fusce vel</a></li>
-                                            <li><a href="#">Vivamus</a></li>
-                                            <li><a href="#">Pellentesque</a></li>
-                                        </ul>
-                                    </div>
-                                    <div class="col-md-6">
-                                        <h6>Something Here</h6>
-                                        <ul>
-                                            <li><a href="#">Condimentum</a></li>
-                                            <li><a href="#">Etiam at</a></li>
-                                            <li><a href="#">Fusce vel</a></li>
-                                            <li><a href="#">Vivamus</a></li>
-                                            <li><a href="#">Pellentesque</a></li>
-                                        </ul>
-                                    </div>
-                                </div>
-                            </li>
-                            <!-- Dropdown menu footer -->
-                            <li class="menu-footer">
-                                <div class="pull-left">
-                                    Something Goes Here<br />
-                                    Write something here also
-                                </div>
-                                <div class="pull-right">
-                                    <a href="#" class="btn btn-default">Button Here</a>
-                                </div>
-                                <div class="clearfix"></div>
-                            </li>
-                        </ul>
-                    </li>
-
-                    <li class="dropdown">
-                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Pages <b class="caret"></b></a>
+                        <a href="#" class="dropdown-toggle" data-toggle="dropdown">Restaurants <b class="caret"></b></a>
                         <ul class="dropdown-menu">
-                            <li><a href="aboutus2.html">About Us</a></li>
-                            <li><a href="404.html">404</a></li>
-                            <li><a href="blog2.html">Blog</a></li>
-                            <li><a href="comingsoon.html">Coming Soon</a></li>
-                            <li><a href="faq.html">FAQ</a></li>
-                            <li><a href="landingpage.html">Landing Page</a></li>
-                            <li><a href="login.html">Login</a></li>
-                            <li><a href="pricing.html">Pricing</a></li>
-                            <li><a href="register.html">Register</a></li>
-                            <li><a href="resume.html">Resume</a></li>
-                            <li><a href="support.html">Support</a></li>
-                            <li><a href="features.html">Features</a></li>
-                            <li><a href="tasks.html">Tasks</a></li>
+                            <li><a href="@Url.Action("Search", "Restaurant")">Search</a></li>
+                            <li><a href="@Url.Action("Create", "Restaurant")">Create New</a></li>
                         </ul>
                     </li>
 
                     <li>
-                        <a href="service.html">Service</a>
-                    </li>
-                    <li>
-                        <a href="portfolio1.html">Portfolio</a>
-                    </li>
-                    <li>
-                        <a href="contactus1.html">Contact Us</a>
+                        <a href="service.html">My Account</a>
                     </li>
                 </ul>
             </nav>
@@ -216,15 +136,7 @@
         </div>
     </footer>
     <!-- JS -->
-    <script src="Scripts/jquery.js"></script> <!-- jQuery -->
-    <script src="Scripts/bootstrap.js"></script> <!-- Bootstrap -->
-    <script src="Scripts/easing.js"></script> <!-- jQuery easing -->
-    <script src="Scripts/filter.js"></script> <!-- Support page filter -->
-    <script src="Scripts/jquery.carouFredSel-6.1.0-packed.js"></script> <!-- CarouFredSel -->
-    <script src="Scripts/jquery.prettyPhoto.js"></script> <!-- jQuery prettyPhoto -->
-    <script src="Scripts/jquery.flexslider-min.js"></script> <!-- Flex slider -->
-    <script src="Scripts/jquery.isotope.js"></script> <!-- Isotope -->
-    <script src="Scripts/custom.js"></script> <!-- Custom sript -->
+    @Scripts.Render("~/bundles/themeScripts")
     @RenderSection("scripts", required: false)
 </body>
 </html>

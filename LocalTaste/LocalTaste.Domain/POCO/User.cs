@@ -1,4 +1,5 @@
-﻿using System.Collections.Generic;
+﻿using System;
+using System.Collections.Generic;
 using System.ComponentModel.DataAnnotations;
 using System.ComponentModel.DataAnnotations.Schema;
 
@@ -12,6 +13,9 @@ namespace LocalTaste.Domain.POCO
         public int Id { get; set; }
 
         [Required]
+        public string Name { get; set; }
+
+        [Required]
         public string UserLogin { get; set; }
 
         [Required]
@@ -19,6 +23,9 @@ namespace LocalTaste.Domain.POCO
 
         [Required]
         public string Password { get; set; }
+
+        [Required]
+        public DateTime DateCreated { get; set; }
 
         public virtual ICollection<Review> Reviews { get; set; }
     }

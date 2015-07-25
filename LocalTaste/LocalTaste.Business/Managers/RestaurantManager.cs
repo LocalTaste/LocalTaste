@@ -16,22 +16,24 @@ namespace LocalTaste.Business.Managers
 
         public Restaurant Add(Restaurant entity)
         {
-            throw new NotImplementedException();
+            RestaurantRepo.Add(entity);
+            return entity;
         }
 
         public void Delete(int Id)
         {
-            throw new NotImplementedException();
+            var poco = RestaurantRepo.Get(Id);
+            RestaurantRepo.Delete(poco);
         }
 
         public Restaurant Get(int Id)
         {
-            throw new NotImplementedException();
+            return RestaurantRepo.Get(Id);
         }
 
         public void Update(Restaurant entity)
         {
-            throw new NotImplementedException();
+            RestaurantRepo.Update(entity);
         }
     }
 }

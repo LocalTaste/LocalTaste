@@ -20,22 +20,24 @@ namespace LocalTaste.Business.Managers
 
         public Review Add(Review entity)
         {
-            throw new NotImplementedException();
+            ReviewRepo.Add(entity);
+            return entity;
         }
 
         public void Delete(int Id)
         {
-            throw new NotImplementedException();
+            var poco = ReviewRepo.Get(Id);
+            ReviewRepo.Delete(poco);
         }
 
         public Review Get(int Id)
         {
-            throw new NotImplementedException();
+            return ReviewRepo.Get(Id);
         }
 
         public void Update(Review entity)
         {
-            throw new NotImplementedException();
+            ReviewRepo.Update(entity);
         }
     }
 }

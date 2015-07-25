@@ -20,22 +20,34 @@ namespace LocalTaste.Business.Managers
 
         public User Add(User entity)
         {
-            throw new NotImplementedException();
+            UserRepo.Add(entity);
+            return entity;
         }
 
         public void Delete(int Id)
         {
-            throw new NotImplementedException();
+            var user = UserRepo.Get(Id);
+            UserRepo.Delete(user);
+        }
+
+        public User Get(string username)
+        {
+            return UserRepo.FirstOrDefault(u => u.UserLogin == username);
         }
 
         public User Get(int Id)
         {
-            throw new NotImplementedException();
+            return UserRepo.Get(Id);
+        }
+
+        public User GetByEmail(string email)
+        {
+            return UserRepo.FirstOrDefault(u => u.Email == email);
         }
 
         public void Update(User entity)
         {
-            throw new NotImplementedException();
+            UserRepo.Update(entity);
         }
     }
 }
