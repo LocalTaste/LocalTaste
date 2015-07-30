@@ -80,7 +80,6 @@ namespace LocalTaste.Mvc.Controllers
                     if (user != null)
                     {
                         identity = new ClaimsIdentity("basic");// UserManager.CreateIdentity(user, "basic");//await _userService.AuthenticateUser(model.Email, model.Password);
-
                         if (identity != null)
                         {
                             AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = false }, identity);

@@ -14,7 +14,7 @@ namespace LocalTaste.Data
         public LocalTasteDataContext()
             : base("LocalTaste")
         {
-            Database.SetInitializer(new MigrateDatabaseToLatestVersion<LocalTasteDataContext, Configuration>());
+            //Database.SetInitializer(new MigrateDatabaseToLatestVersion<LocalTasteDataContext, Configuration>());
         }
 
         public new IDbSet<T> Set<T>() where T : class
