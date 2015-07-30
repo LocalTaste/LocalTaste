@@ -1,5 +1,9 @@
+<<<<<<< Updated upstream
 ﻿using LocalTaste.Business.Managers.Interfaces;
 using LocalTaste.Domain.POCO;
+=======
+﻿using LocalTaste.Mvc.Models;
+>>>>>>> Stashed changes
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -96,9 +100,18 @@ namespace LocalTaste.Mvc.Controllers
             }
         }
 
+        //GET
         public ActionResult Search()
         {
-            return View();
+            SearchViewModel vm = new SearchViewModel();
+            return View(vm);
+        }
+
+        [HttpPost]
+        public ActionResult Search(SearchViewModel input)
+        {
+            return View(input);
+
         }
     }
 }
