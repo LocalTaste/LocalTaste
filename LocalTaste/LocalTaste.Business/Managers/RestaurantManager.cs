@@ -2,6 +2,7 @@
 using LocalTaste.Data.Repositories.Interfaces;
 using LocalTaste.Domain.POCO;
 using System;
+using System.Collections.Generic;
 
 namespace LocalTaste.Business.Managers
 {
@@ -29,6 +30,11 @@ namespace LocalTaste.Business.Managers
         public Restaurant Get(int Id)
         {
             return RestaurantRepo.Get(Id);
+        }
+
+        public List<Restaurant> Search(string input)
+        {
+            throw new NotImplementedException();
         }
 
         public void Update(Restaurant entity)

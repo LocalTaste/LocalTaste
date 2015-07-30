@@ -1,9 +1,6 @@
-<<<<<<< Updated upstream
 ﻿using LocalTaste.Business.Managers.Interfaces;
 using LocalTaste.Domain.POCO;
-=======
 ﻿using LocalTaste.Mvc.Models;
->>>>>>> Stashed changes
 using System;
 using System.Collections.Generic;
 using System.Linq;
@@ -111,6 +108,7 @@ namespace LocalTaste.Mvc.Controllers
         [HttpPost]
         public ActionResult Search(SearchViewModel input)
         {
+            input.Results = restaurantManager.Search(input.SearchInput);
             return View(input);
 
         }
