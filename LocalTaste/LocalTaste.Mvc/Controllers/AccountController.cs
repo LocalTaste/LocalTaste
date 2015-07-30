@@ -9,34 +9,35 @@ using Microsoft.AspNet.Identity;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using LocalTaste.Mvc.Models;
+using LocalTaste.Mvc.Services;
+using LocalTaste.Business.Managers.Interfaces;
 
 namespace LocalTaste.Mvc.Controllers
 {
     [Authorize]
     public class AccountController : Controller
     {
-        private ApplicationSignInManager _signInManager;
         private ApplicationUserManager _userManager;
+        private readonly IAuthenticationService _authService;
+        private readonly IUserManager _userService;
+        private ApplicationSignInManager _signInManager;
 
-        public AccountController()
+        public AccountController(IAuthenticationService authService, IUserManager userService)
         {
-        }
-
-        public AccountController(ApplicationUserManager userManager, ApplicationSignInManager signInManager )
-        {
-            UserManager = userManager;
-            SignInManager = signInManager;
+            _authService = authService;
+            _userManager = ApplicationUserManager.Create(new IdentityFactoryOptions<ApplicationUserManager>(), authService);
+            _userService = userService;
         }
 
         public ApplicationSignInManager SignInManager
         {
             get
             {
-                return _signInManager ?? HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
+                return  HttpContext.GetOwinContext().Get<ApplicationSignInManager>();
             }
-            private set 
-            { 
-                _signInManager = value; 
+            private set
+            {
+                _signInManager = value;
             }
         }
 
@@ -44,7 +45,7 @@ namespace LocalTaste.Mvc.Controllers
         {
             get
             {
-                return _userManager ?? HttpContext.GetOwinContext().GetUserManager<ApplicationUserManager>();
+                return _userManager;
             }
             private set
             {
@@ -68,27 +69,46 @@ namespace LocalTaste.Mvc.Controllers
         [ValidateAntiForgeryToken]
         public async Task<ActionResult> Login(LoginViewModel model, string returnUrl)
         {
-            if (!ModelState.IsValid)
+            if (ModelState.IsValid)
             {
-                return View(model);
+                ClaimsIdentity identity = null;
+
+                try
+                {
+                    var user = await _authService.FindByEmailAsync(model.Email);
+
+                    if (user != null)
+                    {
+                        identity = new ClaimsIdentity("basic");// UserManager.CreateIdentity(user, "basic");//await _userService.AuthenticateUser(model.Email, model.Password);
+
+                        if (identity != null)
+                        {
+                            AuthenticationManager.SignIn(new AuthenticationProperties { IsPersistent = false }, identity);
+
+                            if (Url.IsLocalUrl(returnUrl) && returnUrl.Length > 1 && returnUrl.StartsWith("/")
+                                && !returnUrl.StartsWith("//") && !returnUrl.StartsWith("/\\"))
+                            {
+                                return Redirect(returnUrl);
+                            }
+                            return RedirectToAction("Index", "Home");
+                        }
+                        else
+                        {
+                            ModelState.AddModelError("", "Invalid login information.");
+                        }
+                    }
+                    else
+                    {
+                        ModelState.AddModelError("", "Invalid login information.");
+                    }
+                }
+                catch (Exception ex)
+                {
+                    ModelState.AddModelError("", ex.Message);
+                }
             }
 
-            // This doesn't count login failures towards account lockout
-            // To enable password failures to trigger account lockout, change to shouldLockout: true
-            var result = await SignInManager.PasswordSignInAsync(model.Email, model.Password, model.RememberMe, shouldLockout: false);
-            switch (result)
-            {
-                case SignInStatus.Success:
-                    return RedirectToLocal(returnUrl);
-                case SignInStatus.LockedOut:
-                    return View("Lockout");
-                case SignInStatus.RequiresVerification:
-                    return RedirectToAction("SendCode", new { ReturnUrl = returnUrl, RememberMe = model.RememberMe });
-                case SignInStatus.Failure:
-                default:
-                    ModelState.AddModelError("", "Invalid login attempt.");
-                    return View(model);
-            }
+            return View(model);
         }
 
         //

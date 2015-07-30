@@ -6,6 +6,7 @@ using LocalTaste.Data.Repositories.Interfaces;
 using LocalTaste.Data.Repositories;
 using LocalTaste.Business.Managers.Interfaces;
 using LocalTaste.Business.Managers;
+using LocalTaste.Mvc.Services;
 
 namespace LocalTaste.Mvc.App_Start
 {
@@ -48,6 +49,7 @@ namespace LocalTaste.Mvc.App_Start
             container.RegisterType<IReviewRepository, ReviewRepository>();
             container.RegisterType<IReviewManager, ReviewManager>();
 
+            container.RegisterType<IAuthenticationService, AuthenticationService>();
         }
     }
 }
