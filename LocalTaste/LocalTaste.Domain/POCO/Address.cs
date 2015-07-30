@@ -1,7 +1,9 @@
 ﻿using System.ComponentModel.DataAnnotations;
+using System.ComponentModel.DataAnnotations.Schema;
 
 namespace LocalTaste.Domain.POCO
 {
+    [ComplexType]
     public class Address
     {
         [Required]

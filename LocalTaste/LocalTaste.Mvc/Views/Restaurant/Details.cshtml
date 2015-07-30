@@ -3,8 +3,6 @@
     ViewBag.Title = "Details";
 }
 
-<h2>Details</h2>
-
 <header>
 
     <div class="page-title">
@@ -23,29 +21,52 @@
 <div class="main">
     <div class="container">
         <div class="row">
-            
-                @Html.LabelFor(m => m.Name)
-                @Html.DisplayFor(m => m.Name, new { @class = "form-control" })
+            <h3>@Model.Name</h3>
+            <hr />
+            <div class="col-md-12 col-sm-12">
 
-                @Html.LabelFor(m => m.PhoneNumber)
-                @Html.DisplayFor(m => m.PhoneNumber, new { @class = "form-control" })
+                <!-- About -->
+                <div class="rblock">
+                    <div class="row">
+                        <div class="col-md-3 col-sm-3">
+                            <h4>Basic Info</h4>
+                        </div>
+                        <div class="col-md-9 col-sm-9">
+                            <div class="rinfo">
+                                <h5>Phone Number</h5>
+                                <div class="rmeta">@Model.PhoneNumber</div>
+                            </div>
+                            <div class="rinfo">
+                                <h5>Address</h5>
+                                <div class="rmeta">@Model.Address.Street @Model.Address.City @Model.Address.State @Model.Address.Zip </div>
+                            </div>
+                            <div class="rinfo">
+                                <h5>Hourse</h5>
+                                <div class="rmeta">Open: @Model.OpenTime Close: @Model.CloseTime </div>
+                            </div>
+                        </div>
+                    </div>
+                </div>
 
-                @Html.LabelFor(m => m.Address.City)
-                @Html.DisplayFor(m => m.Address.City, new { @class = "form-control" })
+                <hr />
+                <h4>Reviews</h4>
+                <div class="col-md-8 col-sm-8">
+                    <div class="posts">
+                        @foreach (var review in Model.Reviews)
+                        {
+                            <div class="entry">
+                                <!-- Meta details -->
+                                <div class="meta">
+                                    <i class="icon-calendar"></i> 26-2-2012 <i class="icon-user"></i> Admin 
+                                </div>
 
-                @Html.LabelFor(m => m.Address.State)
-                @Html.DisplayFor(m => m.Address.State, new { @class = "form-control" })
-
-                @Html.LabelFor(m => m.Address.Street)
-                @Html.DisplayFor(m => m.Address.Street, new { @class = "form-control" })
-
-                @Html.LabelFor(m => m.Address.Zip)
-                @Html.DisplayFor(m => m.Address.Zip, new { @class = "form-control" })
-                @Html.TextAreaFor(m => m.Reviews, new { @class = "form-control"})
-                <button type="submit"> Submit </button>
-           
-
-
+                                <p>@review.Message</p>
+                                <div class="clearfix"></div>
+                            </div>
+                        }
+                    </div>
+                </div>
+            </div>
         </div>
     </div>
 </div>

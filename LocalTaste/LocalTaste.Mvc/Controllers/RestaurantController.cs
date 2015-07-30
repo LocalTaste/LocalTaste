@@ -21,7 +21,8 @@ namespace LocalTaste.Mvc.Controllers
         // GET: Restaurant
         public ActionResult Index()
         {
-            return View();
+            var restaurants = restaurantManager.Get();
+            return View(restaurants);
         }
 
         // GET: Restaurant/Details/5
@@ -102,6 +103,7 @@ namespace LocalTaste.Mvc.Controllers
         public ActionResult Search()
         {
             SearchViewModel vm = new SearchViewModel();
+            vm.Results = restaurantManager.Get();
             return View(vm);
         }
 

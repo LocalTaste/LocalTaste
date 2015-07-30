@@ -14,6 +14,6 @@ namespace LocalTaste.Mvc.Models
         }
 
         public string SearchInput { get; set; }
-        public List<Restaurant> Results { get; set; }
+        public IEnumerable<Restaurant> Results { get; set; }
     }
 }

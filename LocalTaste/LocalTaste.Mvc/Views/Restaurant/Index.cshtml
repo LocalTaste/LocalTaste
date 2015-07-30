@@ -1,13 +1,13 @@
-﻿@model LocalTaste.Mvc.Models.SearchViewModel
+﻿@model IEnumerable<LocalTaste.Domain.POCO.Restaurant>
+
 @{
-    ViewBag.Title = "Search";
+    ViewBag.Title = "Index";
 }
 
 <header>
 
     <div class="page-title">
-        <h2>Search</h2>
-        <div class="page-meta">This is where you look up your favorite restaurant.</div>
+        <h2>Restaurants</h2>
     </div>
 
 </header>
@@ -21,36 +21,30 @@
 <div class="main">
     <div class="container">
         <div class="row">
-            @using (Html.BeginForm())
-            {
-                @Html.TextBoxFor(m => m.SearchInput)
-                <button type="submit">Search</button>
-            }
-
             <table class="table">
                 <tr>
                     <th>
-                        Name
+                        @Html.DisplayNameFor(model => model.Name)
                     </th>
                     <th>
-                        PhoneNumber
+                        @Html.DisplayNameFor(model => model.PhoneNumber)
                     </th>
                     <th>
-                        WebsiteUrl
+                        @Html.DisplayNameFor(model => model.WebsiteUrl)
                     </th>
                     <th>
-                        OpenTime
+                        @Html.DisplayNameFor(model => model.OpenTime)
                     </th>
                     <th>
-                        CloseTime
+                        @Html.DisplayNameFor(model => model.CloseTime)
                     </th>
                     <th>
-                        PriceRating
+                        @Html.DisplayNameFor(model => model.PriceRating)
                     </th>
                     <th></th>
                 </tr>
 
-                @foreach (var item in Model.Results)
+                @foreach (var item in Model)
                 {
                     <tr>
                         <td>
@@ -72,16 +66,12 @@
                             @Html.DisplayFor(modelItem => item.PriceRating)
                         </td>
                         <td>
-                            @Html.ActionLink("Details", "Details", new { id = item.Id })
+                            @Html.ActionLink("Details", "Details", new { id = item.Id }) 
                         </td>
                     </tr>
                 }
 
             </table>
-
         </div>
     </div>
 </div>
-
-<!-- Main content ends -->
-

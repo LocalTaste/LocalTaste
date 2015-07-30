@@ -5,9 +5,10 @@ namespace LocalTaste.Business.Managers.Interfaces
 {
     public interface IRestaurantManager
     {
+        IEnumerable<Restaurant> Get();
         Restaurant Get(int Id);
         Restaurant Add(Restaurant entity);
-        List<Restaurant> Search(string input);
+        IEnumerable<Restaurant> Search(string input);
         void Update(Restaurant entity);
         void Delete(int Id);
     }

@@ -27,19 +27,27 @@ namespace LocalTaste.Business.Managers
             RestaurantRepo.Delete(poco);
         }
 
+        public IEnumerable<Restaurant> Get()
+        {
+            return RestaurantRepo.Get();
+        }
+
         public Restaurant Get(int Id)
         {
             return RestaurantRepo.Get(Id);
         }
 
-        public List<Restaurant> Search(string input)
-        {
-            throw new NotImplementedException();
-        }
-
         public void Update(Restaurant entity)
         {
             RestaurantRepo.Update(entity);
+        }
+
+        public IEnumerable<Restaurant> Search(string input)
+        {
+            if (string.IsNullOrEmpty(input))
+                return RestaurantRepo.Get();
+
+            return RestaurantRepo.Where(r => r.Name.ToLower().Contains(input.ToLower()));
         }
     }
 }
