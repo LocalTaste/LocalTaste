@@ -1,4 +1,6 @@
-﻿using System;
+﻿using LocalTaste.Business.Managers.Interfaces;
+using LocalTaste.Domain.POCO;
+using System;
 using System.Collections.Generic;
 using System.Linq;
 using System.Web;
@@ -8,6 +10,13 @@ namespace LocalTaste.Mvc.Controllers
 {
     public class RestaurantController : Controller
     {
+        private readonly IRestaurantManager restaurantManager;
+
+        public RestaurantController(IRestaurantManager restMgr)
+        {
+            this.restaurantManager = restMgr;
+        }
+
         // GET: Restaurant
         public ActionResult Index()
         {
@@ -23,16 +32,17 @@ namespace LocalTaste.Mvc.Controllers
         // GET: Restaurant/Create
         public ActionResult Create()
         {
-            return View();
+            var rest = new Restaurant();
+            return View(rest);
         }
 
         // POST: Restaurant/Create
         [HttpPost]
-        public ActionResult Create(FormCollection collection)
+        public ActionResult Create(Restaurant restaurant)
         {
             try
             {
-                // TODO: Add insert logic here
+                restaurantManager.Add(restaurant);
 
                 return RedirectToAction("Index");
             }
