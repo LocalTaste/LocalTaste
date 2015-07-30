@@ -26,7 +26,8 @@ namespace LocalTaste.Mvc.Controllers
         // GET: Restaurant/Details/5
         public ActionResult Details(int id)
         {
-            return View();
+            var restuarant = restaurantManager.Get(id);
+            return View(restuarant);
         }
 
         // GET: Restaurant/Create

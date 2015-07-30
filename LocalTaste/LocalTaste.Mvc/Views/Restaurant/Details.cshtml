@@ -1,0 +1,51 @@
+﻿@model LocalTaste.Domain.POCO.Restaurant
+@{
+    ViewBag.Title = "Details";
+}
+
+<h2>Details</h2>
+
+<header>
+
+    <div class="page-title">
+        <h2>Local Taste</h2>
+        <div class="page-meta">Welcome to your restuarant home page</div>
+    </div>
+
+</header>
+
+<!-- Main Content starts -->
+<!-- For sheets effect -->
+<div class="main-sheet1"></div>
+<div class="main-sheet2"></div>
+<div class="main-sheet3"></div>
+
+<div class="main">
+    <div class="container">
+        <div class="row">
+            
+                @Html.LabelFor(m => m.Name)
+                @Html.DisplayFor(m => m.Name, new { @class = "form-control" })
+
+                @Html.LabelFor(m => m.PhoneNumber)
+                @Html.DisplayFor(m => m.PhoneNumber, new { @class = "form-control" })
+
+                @Html.LabelFor(m => m.Address.City)
+                @Html.DisplayFor(m => m.Address.City, new { @class = "form-control" })
+
+                @Html.LabelFor(m => m.Address.State)
+                @Html.DisplayFor(m => m.Address.State, new { @class = "form-control" })
+
+                @Html.LabelFor(m => m.Address.Street)
+                @Html.DisplayFor(m => m.Address.Street, new { @class = "form-control" })
+
+                @Html.LabelFor(m => m.Address.Zip)
+                @Html.DisplayFor(m => m.Address.Zip, new { @class = "form-control" })
+                @Html.TextAreaFor(m => m.Reviews, new { @class = "form-control"})
+                <button type="submit"> Submit </button>
+           
+
+
+        </div>
+    </div>
+</div>

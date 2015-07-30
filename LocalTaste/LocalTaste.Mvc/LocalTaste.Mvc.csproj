@@ -403,6 +403,7 @@
     <Content Include="Service References\Application Insights\ConnectedService.json" />
     <Content Include="Views\Restaurant\Create.cshtml" />
     <Content Include="Views\Restaurant\Search.cshtml" />
+    <Content Include="Views\Restaurant\Details.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />

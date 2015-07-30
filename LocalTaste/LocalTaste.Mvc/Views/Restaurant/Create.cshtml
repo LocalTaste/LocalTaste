@@ -1,10 +1,10 @@
 ﻿@model LocalTaste.Domain.POCO.Restaurant
-
 @{
     ViewBag.Title = "Create";
 }
 
 <header>
+
 
     <div class="page-title">
         <h2>Local Taste</h2>
@@ -25,11 +25,24 @@
             @using (Html.BeginForm("Create", "Restaurant"))
             {
                 @Html.LabelFor(m => m.Name)
-                @Html.TextBoxFor(m => m.Name)
-
+                @Html.TextBoxFor(m => m.Name, new { @class = "form-control" })
+                
                 @Html.LabelFor(m => m.PhoneNumber)
-                @Html.TextBoxFor(m => m.PhoneNumber)
-                <button type="submit">Submit</button>
+                @Html.TextBoxFor(m => m.PhoneNumber, new { @class = "form-control" })
+                
+                @Html.LabelFor(m => m.Address.City)
+                @Html.TextBoxFor(m => m.Address.City, new { @class = "form-control" })
+
+                @Html.LabelFor(m => m.Address.State)
+                @Html.TextBoxFor(m => m.Address.State, new { @class = "form-control" })
+
+                @Html.LabelFor(m => m.Address.Street)
+                @Html.TextBoxFor(m => m.Address.Street, new { @class = "form-control" })
+
+                @Html.LabelFor(m => m.Address.Zip)
+                @Html.TextBoxFor(m => m.Address.Zip, new { @class = "form-control" })
+
+             <button type="submit"> Submit </button>
             }
 
 
