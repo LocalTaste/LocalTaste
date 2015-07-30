@@ -1,4 +1,4 @@
-﻿@model string
+﻿@model LocalTaste.Mvc.Models.SearchViewModel
 @{
     ViewBag.Title = "Search";
 }
@@ -23,7 +23,13 @@
         <div class="row">
             @using (Html.BeginForm())
             {
-                @Html.TextBoxFor(m => m)
+                @Html.TextBoxFor(m => m.SearchInput)
+                <button type="submit">Search</button>
+            }
+
+            @foreach(var restaurant in Model.Results)
+            {
+                @Html.DisplayFor(m => restaurant.Name)
             }
 
         </div>

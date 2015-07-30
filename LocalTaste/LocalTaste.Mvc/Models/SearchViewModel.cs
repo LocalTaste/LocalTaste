@@ -8,6 +8,11 @@ namespace LocalTaste.Mvc.Models
 {
     public class SearchViewModel
     {
+        public SearchViewModel()
+        {
+            Results = new List<Restaurant>();
+        }
+
         public string SearchInput { get; set; }
         public List<Restaurant> Results { get; set; }
     }
